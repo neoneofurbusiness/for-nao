@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.shutterstock.com/shutterstock/photos/2385853185/display_1500/stock-vector-cute-otter-character-design-illustration-2385853185.jpg">
+    <title>for nao</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #ffebee; 
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #ff6b81; 
+            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3);
+            max-width: 80vw;
+            width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background: #0056b3;
+        }
+
+        .page {
+            display: none;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .yes-btn {
+            padding: 12px 24px;
+            font-size: 20px;
+            border: 2px solid #ff6b81;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #ff6b81;
+            color: white;
+            font-family: 'Indie Flower', cursive;
+            box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+        }
+
+        .yes-btn:hover {
+            background-color: white;
+            color: #ff6b81;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 129, 0.4);
+        }
+
+        .no-btn {
+            padding: 12px 24px;
+            font-size: 20px;
+            border: 2px solid #ff6b81;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-family: 'Indie Flower', cursive;
+            box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+            background-color: #ff4757;
+            border-color: #ff4757;
+            position: relative;
+            z-index: 100;
+        }
+
+        .no-btn:hover {
+            background-color: white;
+            color: #ff4757;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 129, 0.4);
+        }
+
+        #page5 .no-btn {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 60vh;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .spawned-btn {
+            position: fixed;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page active" id="page1">
+            <img src="https://media.tenor.com/d2nnuVMvPbcAAAAi/milk-and-mocha-milk-and-mocha-bear.gif">
+            <p>as we both work on becoming the better version of ourselves, can i stay by your side?</p>
+            <div class="button-container">
+                <button class="yes-btn" onclick="nextPage()">oki</button>
+                <button class="no-btn" onclick="goToNo()">ayaw ko nga</button>
+            </div>
+        </div>
+
+        <div class="page" id="page2">
+            <button class="back-btn" onclick="prevPage()">Back</button>
+            <img src="https://media.tenor.com/WC0mv2OuqrAAAAAi/milk-and-mocha.gif">
+            <p>when everything is overwhelming and the world is draining, can i be one of the arms you run to for comfort?</p>
+            <div class="button-container">
+                <button class="yes-btn" onclick="nextPage()">oki</button>
+                <button class="no-btn" onclick="goToNo()">ayaw ko nga</button>
+            </div>
+        </div>
+
+        <div class="page" id="page3">
+            <button class="back-btn" onclick="prevPage()">Back</button>
+            <img src="https://media.tenor.com/snFoLI-S9CQAAAAi/milk-and-mocha.gif">
+            <p>on moments that your mind is making you question your worth, can i show my love for you through little things and big gestures until you're reassured enough how lovely you are?</p>
+            <div class="button-container">
+                <button class="yes-btn" onclick="nextPage()">oki</button>
+                <button class="no-btn" onclick="goToNo()">ayaw ko nga</button>
+            </div>
+        </div>
+
+        <div class="page" id="page4">
+            <button class="back-btn" onclick="prevPage()">Back</button>
+            <img src="https://media.tenor.com/MC3ZYo7c8-4AAAAi/milk-and-mocha.gif">
+            <p>last time, i failed to ask you one important question. today, i will not make that same mistake again.</p>
+            <div class="button-container">
+                <button class="yes-btn" onclick="nextPage()">hmmm oki what is it</button>
+            </div>
+        </div>
+
+        <div class="page" id="page5">
+            <button class="back-btn" onclick="prevPage()">Back</button>
+            <img src="https://media.tenor.com/kgQfUEjcSdgAAAAi/milk-and-mocha.gif">
+            <p>gwyn, can i be your girlfriend?</p>
+            <div class="button-container">
+                <button class="yes-btn" onclick="goToYes()">omg sige</button>
+                <button class="no-btn" onclick="goToNO()">ayaw</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+        let noButtonClickCount = 0;
+        let buttonPositions = [];
+        let spawnedButtons = 0;
+
+        function showPage(page) {
+            document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
+            document.getElementById(`page${page}`).classList.add("active");
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        function goToYes() {
+            window.location.href = "yehey.html";
+        }
+
+        function goToNo() {
+            window.location.href = "hays.html";
+        }
+
+        function goToNO() {
+            const activePage = document.querySelector('.page.active');
+            const noButton = activePage.querySelector('.no-btn');
+            if (noButton) {
+                noButton.parentNode.removeChild(noButton);
+            }
+            
+            noButtonClickCount++;
+            
+            if (noButtonClickCount <= 5) {
+                createRandomButton();
+            } else if (noButtonClickCount === 6) {
+                for (let i = 0; i < 5; i++) {
+                    if (i < buttonPositions.length) {
+                        createButtonAtPosition(buttonPositions[i].left, buttonPositions[i].top);
+                    }
+                }
+            }
+        }
+        
+        function createRandomButton() {
+            const newButton = document.createElement('button');
+            newButton.className = 'no-btn spawned-btn';
+            newButton.textContent = 'ayaw';
+            
+            newButton.onclick = function() {
+                this.parentNode.removeChild(this);
+                spawnedButtons--;
+                
+                const totalButtons = document.querySelectorAll('.spawned-btn').length;
+                if (totalButtons >= 5) {
+                    for (let i = 0; i < 3; i++) {
+                        createSpawningButton();
+                    }
+                } else {
+                    goToNO();
+                }
+            };
+            
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            const buttonWidth = 100;
+            const buttonHeight = 50;
+            
+            const padding = 20;
+            
+            let left = Math.random() * (viewportWidth - buttonWidth - 2 * padding) + padding;
+            let top = Math.random() * (viewportHeight - buttonHeight - 2 * padding) + padding;
+            
+            let attempts = 0;
+            const maxAttempts = 50;
+            
+            while (isOverlappingImportantContent(left, top, buttonWidth, buttonHeight) && attempts < maxAttempts) {
+                left = Math.random() * (viewportWidth - buttonWidth - 2 * padding) + padding;
+                top = Math.random() * (viewportHeight - buttonHeight - 2 * padding) + padding;
+                attempts++;
+            }
+            
+            newButton.style.left = `${left}px`;
+            newButton.style.top = `${top}px`;
+            
+            buttonPositions.push({ left, top });
+            spawnedButtons++;
+            
+            document.body.appendChild(newButton);
+        }
+        
+        function createSpawningButton() {
+            const newButton = document.createElement('button');
+            newButton.className = 'no-btn spawned-btn';
+            newButton.textContent = 'ayaw';
+            
+            newButton.onclick = function() {
+                const buttonRect = this.getBoundingClientRect();
+                const buttonX = buttonRect.left;
+                const buttonY = buttonRect.top;
+                
+                this.parentNode.removeChild(this);
+                
+                for (let i = 0; i < 3; i++) {
+                    createSpawningButtonNear(buttonX, buttonY);
+                }
+            };
+            
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            const buttonWidth = 100;
+            const buttonHeight = 50;
+            
+            const padding = 20;
+            
+            let left = Math.random() * (viewportWidth - buttonWidth - 2 * padding) + padding;
+            let top = Math.random() * (viewportHeight - buttonHeight - 2 * padding) + padding;
+            
+            let attempts = 0;
+            const maxAttempts = 50;
+            
+            while (isOverlappingImportantContent(left, top, buttonWidth, buttonHeight) && attempts < maxAttempts) {
+                left = Math.random() * (viewportWidth - buttonWidth - 2 * padding) + padding;
+                top = Math.random() * (viewportHeight - buttonHeight - 2 * padding) + padding;
+                attempts++;
+            }
+            
+            newButton.style.left = `${left}px`;
+            newButton.style.top = `${top}px`;
+            
+            document.body.appendChild(newButton);
+        }
+        
+        function createSpawningButtonNear(x, y) {
+            const newButton = document.createElement('button');
+            newButton.className = 'no-btn spawned-btn';
+            newButton.textContent = 'ayaw';
+            
+            newButton.onclick = function() {
+                const buttonRect = this.getBoundingClientRect();
+                const buttonX = buttonRect.left;
+                const buttonY = buttonRect.top;
+                
+                this.parentNode.removeChild(this);
+                
+                for (let i = 0; i < 3; i++) {
+                    createSpawningButtonNear(buttonX, buttonY);
+                }
+            };
+            
+            const spread = 150;
+            
+            let left = x + (Math.random() * spread - spread/2);
+            let top = y + (Math.random() * spread - spread/2);
+            
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const buttonWidth = 100;
+            const buttonHeight = 50;
+            const padding = 20;
+            
+            left = Math.max(padding, Math.min(viewportWidth - buttonWidth - padding, left));
+            top = Math.max(padding, Math.min(viewportHeight - buttonHeight - padding, top));
+            
+            newButton.style.left = `${left}px`;
+            newButton.style.top = `${top}px`;
+            
+            document.body.appendChild(newButton);
+        }
+        
+        function createButtonAtPosition(left, top) {
+            const newButton = document.createElement('button');
+            newButton.className = 'no-btn spawned-btn';
+            newButton.textContent = 'ayaw';
+            newButton.style.left = `${left}px`;
+            newButton.style.top = `${top}px`;
+            
+            newButton.onclick = function() {
+                const buttonRect = this.getBoundingClientRect();
+                const buttonX = buttonRect.left;
+                const buttonY = buttonRect.top;
+                
+                this.parentNode.removeChild(this);
+                
+                for (let i = 0; i < 3; i++) {
+                    createSpawningButtonNear(buttonX, buttonY);
+                }
+            };
+            
+            spawnedButtons++;
+            document.body.appendChild(newButton);
+        }
+        
+        function isOverlappingImportantContent(left, top, width, height) {
+            const importantElements = document.querySelectorAll('img, .button-container, .back-btn');
+            
+            for (let element of importantElements) {
+                const rect = element.getBoundingClientRect();
+                
+                if (
+                    left < rect.right &&
+                    left + width > rect.left &&
+                    top < rect.bottom &&
+                    top + height > rect.top
+                ) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        showPage(currentPage);
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="https://www.shutterstock.com/shutterstock/photos/2385853185/display_1500/stock-vector-cute-otter-character-design-illustration-2385853185.jpg">
+        <title>for nao</title>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; 
+                background-color: #fff5f5; 
+                font-family: Arial, sans-serif;
+                overflow: hidden; 
+            }
+
+            .container {
+                position: relative;
+                text-align: center;
+                background-color: #ffebee; 
+                padding: 40px;
+                border-radius: 20px;
+                border: 3px solid #ff6b81; 
+                box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3); 
+                max-width: 600px; 
+                max-width: 75vw; 
+            }
+
+            .header_text {
+                font-size: 50px;
+                font-weight: bold;
+                color: #ff6b81; 
+                margin: 20px 0;
+                text-shadow: 2px 2px 4px rgba(255, 107, 129, 0.2); 
+            }
+
+            .gif_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .gif_container img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px; 
+            }
+
+            .back-button {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                background-color: #ff6b81;
+                color: white;
+                border: none;
+                border-radius: 15px;
+                padding: 8px 15px;
+                font-size: 14px;
+                font-family: 'Indie Flower', cursive;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(255, 107, 129, 0.3);
+                transition: all 0.3s ease;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .back-button:hover {
+                background-color: #ff5268;
+                transform: scale(1.05);
+            }
+        </style>
+    </head> 
+    <body>
+        <div class="container">
+            <a href="index.html" class="back-button">jusko sorry na hindi na</a>
+            <div>
+                <img src="https://media.tenor.com/wtOzO79WVdEAAAAi/masters.gif">
+                <p>boo boo boooooo booooo bleh booohhhh blehh booh blehhh booohhh booooooooooo i hate you i hate you i hate chuuuu i hate u</p>
+            </div>
+        </div>
+
+        <script>
+            document.querySelector('.back-button').addEventListener('click', function(e) {
+                console.log('Back button clicked');
+            });
+        </script>
+    </body> 
+</html>
